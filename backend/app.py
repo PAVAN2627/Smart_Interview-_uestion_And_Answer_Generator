@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env.local'))
 load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../", static_url_path="")
 CORS(app)
 
 # Configure Azure OpenAI with environment variables
@@ -28,6 +28,10 @@ else:
         api_key=azure_key,
         api_version=azure_api_version
     )
+
+@app.route("/")
+def home():
+    return app.send_static_file("index.html")
 
 @app.route('/generate', methods=['POST'])
 def generate_qa():
