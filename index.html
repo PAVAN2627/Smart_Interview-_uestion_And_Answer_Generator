@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Interview Q&A Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Smart Interview Q&A Generator</h1>
+            <p>Generate tailored interview questions and answers for any role</p>
+        </header>
+
+        <div class="input-section">
+            <label for="role-input">Enter Role/Topic:</label>
+            <input 
+                type="text" 
+                id="role-input" 
+                placeholder="e.g., Senior Frontend Developer, Data Scientist, Product Manager"
+                autocomplete="off"
+            >
+            <button id="generate-btn">Generate Interview Q&A</button>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Generating questions and answers...</p>
+        </div>
+
+        <div id="results" class="results hidden">
+            <div class="actions">
+                <button id="copy-btn" class="action-btn">📋 Copy to Clipboard</button>
+                <button id="download-btn" class="action-btn">📄 Download as PDF</button>
+            </div>
+
+            <section class="qa-section">
+                <h2>💼 Technical Questions (10)</h2>
+                <div id="technical-qa"></div>
+            </section>
+
+            <section class="qa-section">
+                <h2>👤 Personal Questions (5)</h2>
+                <div id="personal-qa"></div>
+            </section>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
